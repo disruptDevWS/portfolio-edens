@@ -1,3 +1,84 @@
-.navbar {
-  font-size: 20px;
+@import "./shared/fonts";
+@import "./shared/colors";
+
+//PAGES
+@import "./index";
+@import "./portfolios";
+
+//COMPONENTS
+@import "./header";
+
+html,
+body {
+  font-family: "Cabin", sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+/*--------------NavBar Styling-----------------*/
+.clickable {
+  cursor: pointer;
+}
+
+// --------- BASE PAGE -------------
+
+.base-page {
+  background-image: linear-gradient(
+    to right top,
+    #e50000,
+    #e20039,
+    #d3005d,
+    #b91479,
+    #98348a,
+    #7d4090,
+    #62488f,
+    #494c89,
+    #374d80,
+    #2d4d73,
+    #2b4b66,
+    #2f4858
+  );
+  min-height: 100vh;
+  padding: 10rem 0;
+  color: $white;
+
+  .page-header {
+    .page-header-title {
+      font-weight: 700;
+      color: $white;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// --------- HOMEPAGE -------------
+.hero-img-citation {
+  font-size: 0.5rem;
+}
+
+// --------- DEFAULT HEADER -------------
+.port-navbar.port-nav-base.port-nav-default {
+  padding: 30px;
+  background-color: transparent;
+}
+
+// ---------- Portfolio Form ------------
+.error {
+  color: #8acf39;
+  font-weight: 700;
+  text-transform: uppercase;
 }

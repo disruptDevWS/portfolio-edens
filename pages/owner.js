@@ -2,16 +2,18 @@ import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/Basepage";
 
-class Blog extends React.Component {
+import withAuth from "../components/hoc/withAuth";
+
+class Owner extends React.Component {
   render() {
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage>
-          <h1>This is the Blog page.</h1>
+          <h1>This is the siteOwner access page.</h1>
         </BasePage>
       </BaseLayout>
     );
   }
 }
 
-export default Blog;
+export default withAuth("siteOwner")(Owner);
