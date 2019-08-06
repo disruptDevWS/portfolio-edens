@@ -74,13 +74,16 @@ class Index extends React.Component {
                     )}
                   </h1>
                   <h2 class="hero-welcome-bio">
-                    Welcome to my portfolio site. Explore past projects and
-                    learn a little more about 1997's Northwest Regional
+                    Welcome to my portfolio site. Explore past work, projects,
+                    and learn a little more about 1997's Northwest Regional
                     Municipal Taekwondo 4th place runner-up.
                   </h2>
                 </div>
                 <div className="hero-welcome-bio">
-                  <h2>As Chef Boyardee once said, "let us get this bread."</h2>
+                  <h2>
+                    As Chief Justice Ruth Ginsburg once said, "let us get this
+                    bread."
+                  </h2>
                 </div>
               </Col>
             </Row>
