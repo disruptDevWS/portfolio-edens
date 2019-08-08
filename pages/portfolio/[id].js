@@ -5,31 +5,31 @@ import { withRouter } from "next/router";
 import Axios from "axios";
 
 class Portfolio extends React.Component {
-  static async getInitialProps(context) {
-    let post = {};
-    const postId = context.query.id;
+  static async getInitialProps({ query }) {
+    const portfolioId = query.id;
+    let portfolio = {};
 
     try {
       const response = await Axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${postId}`
+        `https://localhost:3000/api/v1/portfolios/${portfolioId}`
       );
-      post = response.data;
+      portfolio = response.data;
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
-    return { post };
+    return { portfolio };
   }
 
   render() {
-    const { post } = this.props;
+    const { portfolio } = this.props;
 
     return (
       <BaseLayout {...this.props.auth}>
         <BasePage>
-          <h1> {post.title} </h1>
-          <h2>{post.body}</h2>
-          <p>{post.id}</p>
+          <h1> {portfolio.title} </h1>
+          <p> BODY: {portfolio.body} </p>
+          <p> ID: {portfolio.id} </p>
         </BasePage>
       </BaseLayout>
     );

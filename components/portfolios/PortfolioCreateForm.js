@@ -1,13 +1,13 @@
 // Render Prop
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Button } from "reactstrap";
+import { Button, Alert } from "reactstrap";
 import PortInput from "../form/PortInput";
 
 const validateInputs = values => {
   let errors = {};
 
-  Object.entries(value).forEach(([key, value]) => {
+  Object.entries(values).forEach(([key, value]) => {
     if (!values[key]) {
       errors[key] = `* ${key} is required`;
     }
@@ -15,20 +15,12 @@ const validateInputs = values => {
   return errors;
 };
 
-const INITIAL_VALUES = {
-  title: "",
-  company: "",
-  location: "",
-  position: "",
-  description: ""
-};
-
-const PortfolioCreateForm = props => (
+const PortfolioCreateForm = ({ initialValues, onSubmit, error }) => (
   <div>
     <Formik
-      initialValues={INITIAL_VALUES}
+      initialValues={initialValues}
       validate={validateInputs}
-      onSubmit={props.onSubmit}
+      onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
         <Form className="portfolio_form">
@@ -61,6 +53,8 @@ const PortfolioCreateForm = props => (
             label="Description"
             component={PortInput}
           />
+
+          {error && <Alert color="danger">{error}</Alert>}
 
           <Button outline color="info" type="submit" disabled={isSubmitting}>
             Create

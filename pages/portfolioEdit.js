@@ -1,21 +1,25 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
 import BasePage from "../components/Basepage";
-import withAuth from "../components/hoc/withAuth";
-import { Router } from "../routes";
 import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm";
 import { Row, Col } from "reactstrap";
-import { createPortfolio } from "../actions";
+import { updatePortfolio, getPortfolioById } from "../actions";
+import withAuth from "../components/hoc/withAuth";
+import { Router } from "../routes";
 
-const INITIAL_VALUES = {
-  title: "",
-  company: "",
-  location: "",
-  position: "",
-  description: ""
-};
+class PortfolioEdit extends React.Component {
+  static async getInitialProps({ query }) {
+    let portfolio = {};
 
-class PortfolioNew extends React.Component {
+    try {
+      portfolio = await getPortfolioById(query.id);
+    } catch (error) {
+      console.error(error);
+    }
+    console.log(portfolio);
+    return { portfolio };
+  }
+
   constructor(props) {
     super();
 
@@ -23,12 +27,12 @@ class PortfolioNew extends React.Component {
       error: undefined
     };
 
-    this.savePortfolio = this.savePortfolio.bind(this);
+    this.updatePortfolio = this.updatePortfolio.bind(this);
   }
 
-  savePortfolio(portfolioData, { setSubmitting }) {
+  updatePortfolio(portfolioData, { setSubmitting }) {
     setSubmitting(true);
-    createPortfolio(portfolioData)
+    updatePortfolio(portfolioData)
       .then(portfolio => {
         setSubmitting(false);
         this.setState({ error: undefined });
@@ -43,18 +47,16 @@ class PortfolioNew extends React.Component {
 
   render() {
     const { error } = this.state;
+    const { portfolio } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage
-          className="portfolio-create-page"
-          title="Create New Portfolio Item"
-        >
+        <BasePage className="portfolio-create-page" title="Update Portfolio">
           <Row>
             <Col md="6">
               <PortfolioCreateForm
-                initialValues={INITIAL_VALUES}
+                initialValues={portfolio}
                 error={error}
-                onSubmit={this.savePortfolio}
+                onSubmit={this.updatePortfolio}
               />
             </Col>
           </Row>
@@ -64,4 +66,4 @@ class PortfolioNew extends React.Component {
   }
 }
 
-export default withAuth("siteOwner")(PortfolioNew);
+export default withAuth("siteOwner")(PortfolioEdit);
