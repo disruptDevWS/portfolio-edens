@@ -1,0 +1,16 @@
+.control-menu {
+  text-align: right;
+  border-bottom: 1px solid $gray-100;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+
+  .title {
+    font-weight: bold;
+    float: left;
+  }
+
+  .status-box {
+    display: inline-block;
+    padding-right: 0.5rem;
+  }
+}

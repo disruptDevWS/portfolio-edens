@@ -85,7 +85,7 @@ export default class HeaderPart extends React.Component {
                 <BootNavLink route="/portfolios" title="Portfolio" />
               </NavItem>
               <NavItem className="port-navbar-item">
-                <BootNavLink route="/blog" title="Blog" />
+                <BootNavLink route="/blogs" title="Blog" />
               </NavItem>
               {!isAuthenticated && (
                 <NavItem className="port-navbar-item">

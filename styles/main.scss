@@ -1,12 +1,16 @@
 @import "./shared/fonts";
 @import "./shared/colors";
+@import "./shared/mixins";
 
 //PAGES
 @import "./index";
 @import "./portfolios";
+@import "./blogs";
+@import "./about";
 
 //COMPONENTS
 @import "./header";
+@import "./slate-editor";
 
 html,
 body {

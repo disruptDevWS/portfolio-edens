@@ -1,19 +1,21 @@
 const express = require("express");
 const next = require("next");
 const mongoose = require("mongoose");
+const routes = require("../routes");
 
 //SERVICES
 const authService = require("./services/auth");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
-const handle = app.getRequestHandler();
+const handle = routes.getRequestHandler(app);
 const config = require("./config");
 
 const bodyParser = require("body-parser");
 
 const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolio");
+const blogRoutes = require("./routes/blog");
 
 const secretData = [
   {
@@ -40,6 +42,7 @@ app
 
     server.use("/api/v1/books", bookRoutes);
     server.use("/api/v1/portfolios", portfolioRoutes);
+    server.use("/api/v1/blogs", blogRoutes);
 
     server.get("/api/v1/secret", authService.checkJWT, (req, res) => {
       return res.json(secretData);

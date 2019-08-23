@@ -14,7 +14,7 @@ class PortfolioEdit extends React.Component {
     try {
       portfolio = await getPortfolioById(query.id);
     } catch (error) {
-      console.error(error);
+      console.error(err);
     }
     console.log(portfolio);
     return { portfolio };
@@ -32,6 +32,7 @@ class PortfolioEdit extends React.Component {
 
   updatePortfolio(portfolioData, { setSubmitting }) {
     setSubmitting(true);
+
     updatePortfolio(portfolioData)
       .then(portfolio => {
         setSubmitting(false);
@@ -50,7 +51,7 @@ class PortfolioEdit extends React.Component {
     const { portfolio } = this.props;
     return (
       <BaseLayout {...this.props.auth}>
-        <BasePage className="portfolio-create-page" title="Update Portfolio">
+        <BasePage className="portfolio-create-page" title="Edit Portfolio">
           <Row>
             <Col md="6">
               <PortfolioCreateForm

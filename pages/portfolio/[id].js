@@ -11,7 +11,7 @@ class Portfolio extends React.Component {
 
     try {
       const response = await Axios.get(
-        `https://localhost:3000/api/v1/portfolios/${portfolioId}`
+        `http://localhost:3000/api/v1/portfolios/${portfolioId}`
       );
       portfolio = response.data;
     } catch (err) {

@@ -59,3 +59,29 @@
   box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.5);
   border: 2px solid #3bace5;
 }
+
+.create-port-btn {
+  background-color: rgba(42, 46, 49, 0.5) !important;
+  margin-bottom: 2rem;
+
+  &:hover {
+    background-color: #17a2b8 !important;
+  }
+}
+
+.edit-port-btn {
+  background-color: rgba(42, 46, 49, 0.5) !important;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: #17a2b8 !important;
+  }
+}
+
+.delete-port-btn {
+  background-color: rgba(42, 46, 49, 0.5) !important;
+
+  &:hover {
+    background-color: #17a2b8 !important;
+  }
+}

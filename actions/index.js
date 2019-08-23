@@ -37,6 +37,7 @@ export const getSecretData = async req => {
     .then(response => response.data);
 };
 
+//PORTFOLIO ACTIONS
 export const getPortfolios = async () => {
   return await axiosInstance.get("/portfolios").then(response => response.data);
 };
@@ -59,4 +60,52 @@ export const updatePortfolio = async portfolioData => {
     .patch(`/portfolios/${portfolioData._id}`, portfolioData, setAuthHeader())
     .then(response => response.data)
     .catch(error => rejectPromise(error));
+};
+
+export const deletePortfolio = portfolioId => {
+  return axiosInstance
+    .delete(`/portfolios/${portfolioId}`, setAuthHeader())
+    .then(response => response.data);
+};
+
+//BLOG ACTIONS
+export const getBlogs = async req => {
+  return await axiosInstance.get("/blogs").then(response => response.data);
+};
+
+export const getBlogBySlug = async slug => {
+  return await axiosInstance
+    .get(`/blogs/s/${slug}`)
+    .then(response => response.data);
+};
+
+export const getUserBlogs = async req => {
+  return await axiosInstance
+    .get("/blogs/me", setAuthHeader(req))
+    .then(response => response.data);
+};
+
+export const createBlog = (blogData, lockId) => {
+  return axiosInstance
+    .post(`/blogs?lockId=${lockId}`, blogData, setAuthHeader())
+    .then(response => response.data)
+    .catch(err => rejectPromise(err));
+};
+
+export const getBlogById = blogId => {
+  return axiosInstance.get(`/blogs/${blogId}`).then(response => response.data);
+};
+
+export const updateBlog = (blogData, blogId) => {
+  return axiosInstance
+    .patch(`/blogs/${blogId}`, blogData, setAuthHeader())
+    .then(response => response.data)
+    .catch(err => rejectPromise(err));
+};
+
+export const deleteBlog = blogId => {
+  return axiosInstance
+    .delete(`/blogs/${blogId}`, setAuthHeader())
+    .then(response => response.data)
+    .catch(err => rejectPromise(err));
 };
