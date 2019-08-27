@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import ActiveLink from "../ActiveLink";
 import {
   Collapse,
   Navbar,
@@ -16,9 +17,9 @@ const BootNavLink = props => {
   const { route, title } = props;
 
   return (
-    <Link href={route}>
+    <ActiveLink activeClassName="active" route={route}>
       <a className="nav-link port-navbar-link">{title}</a>
-    </Link>
+    </ActiveLink>
   );
 };
 

@@ -130,13 +130,15 @@
 
 //Card Flip
 .flipper {
-  transition: 1s;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
   transform-style: preserve-3d;
   position: relative;
-}
+  transition: all 0.8s ease;
 
-.flipper.isFlipping {
-  transform: rotateY(-180deg);
+  &:hover {
+    transform: rotateY(180deg);
+  }
 }
 
 .front,
@@ -145,13 +147,32 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 .front {
   transform: rotateY(0deg);
-  z-index: 999;
 }
 
 .back {
   transform: rotateY(180deg);
+
+  .hero-section-content {
+    position: absolute;
+    top: 2rem;
+  }
+
+  .card-item a {
+    color: $white;
+  }
+
+  .card-item a:hover {
+    text-decoration: none;
+    color: $blue;
+  }
+
+  .hero-img-citation {
+    position: absolute;
+    bottom: 0rem;
+  }
 }

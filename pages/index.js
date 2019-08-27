@@ -6,31 +6,10 @@ import Typed from "react-typed";
 class Index extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isFlipping: false
-    };
-  }
-
-  componentDidMount() {
-    this.animateCard();
-  }
-
-  componentWillLeave() {
-    this.cardAnimationInterval && clearInterval(this.cardAnimationInterval);
-  }
-
-  animateCard() {
-    this.cardAnimationInterval = setInterval(() => {
-      this.setState({
-        isFlipping: !this.state.isFlipping
-      });
-    }, 3000);
   }
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
-    const { isFlipping } = this.state;
 
     return (
       <BaseLayout className="cover" {...this.props.auth} headerType="index">
@@ -42,7 +21,7 @@ class Index extends React.Component {
             <Row>
               <Col md="6">
                 <div className="hero-section">
-                  <div className={`flipper ${isFlipping ? "isFlipping" : ""}`}>
+                  <div className="flipper">
                     <div className="front">
                       <div className="hero-section-content">
                         <h2> Full Stack Web Developer </h2>
@@ -86,23 +65,36 @@ class Index extends React.Component {
 
                     <div className="back">
                       <div className="hero-section-content">
-                        <h2>Have a Project?</h2>
+                        <h2>Mathias Tiberius Edens</h2>
                         <div className="hero-section-content-intro">
-                          <h3>Contact me, and let's get to work</h3>
-                          <ul>
-                            <li>
-                              Email @{" "}
+                          <h4>Interested in working together?</h4>
+                          <ul className="card-list">
+                            <li className="card-item">
+                              <b>Email:</b>
                               <a href="mailto:epochws@gmail.com">
-                                epochws@gmail.com{" "}
+                                {" "}
+                                epochws@gmail.com
                               </a>
                             </li>
-                            <li>
-                              Call{" "}
-                              <a href="tel:1-208-602-1716">(208) 602-1716</a>
+                            <li className="card-item">
+                              <b>Phone:</b>
+                              <a href="tel:1-208-602-1716"> (208) 602-1716</a>
                             </li>
                           </ul>
+                          <div className="hero-img-citation">
+                            <p>
+                              Illustration by{" "}
+                              <a href="https://icons8.com" target="_blank">
+                                Ouch.pics
+                              </a>
+                            </p>
+                          </div>
                         </div>
                       </div>
+                      <img
+                        className="image"
+                        src="/static/images/flame-message-sent.png"
+                      />
                       <div className="shadow-custom">
                         <div className="shadow-inner"></div>
                       </div>
