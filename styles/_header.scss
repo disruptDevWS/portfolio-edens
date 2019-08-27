@@ -35,4 +35,25 @@
       }
     }
   }
+
+  .port-dropdown-menu {
+    .port-dropdown-item {
+      color: $cyan;
+      opacity: 0.5;
+
+      &.active {
+        color: $cyan;
+        opacity: 1;
+      }
+
+      &:hover {
+        color: $cyan !important;
+        opacity: 1 !important;
+      }
+    }
+
+    .port-dropdown-toggle {
+      opacity: 0.8;
+    }
+  }
 }
