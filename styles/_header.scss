@@ -54,6 +54,16 @@
 
     .port-dropdown-toggle {
       opacity: 0.8;
+      margin-left: 10px;
+      margin-right: 10px;
     }
   }
+}
+
+.bg-transparent.menu-open {
+  background-color: $main-color-blue !important;
+}
+
+.bg-transparent.menu-close {
+  transition: 1s;
 }

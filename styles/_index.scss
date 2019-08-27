@@ -90,7 +90,8 @@
 
 @media (max-width: 991px) {
   .hero-section {
-    width: 341px;
+    height: 454px;
+    width: 380px;
 
     &-content {
       width: 341px;
@@ -130,28 +131,29 @@
 
 //Card Flip
 .flipper {
-  perspective: 150rem;
-  -moz-perspective: 150rem;
+  perspective: 1000px;
+  -moz-perspective: 1000px;
   transform-style: preserve-3d;
   position: relative;
   transition: all 0.8s ease;
 
   &:hover {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 }
 
 .front,
 .back {
+  overflow: hidden;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
 }
 
 .front {
   transform: rotateY(0deg);
+  z-index: 999;
 }
 
 .back {
