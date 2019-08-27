@@ -6,8 +6,8 @@ import { Row, Col } from "reactstrap";
 class Cv extends React.Component {
   render() {
     return (
-      <BaseLayout {...this.props.auth}>
-        <BasePage className="cv-page" title="Printable Resume/CV: Matt Edens">
+      <BaseLayout title="Matt Edens | Printable Resume" {...this.props.auth}>
+        <BasePage className="cv-page" title="Printable Resume: Matt Edens">
           <Row>
             <Col md={{ size: 8, offset: 2 }}>
               <div className="cv-title">

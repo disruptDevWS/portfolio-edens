@@ -44,6 +44,7 @@ class Blogs extends React.Component {
         {...this.props.auth}
         headerType={"landing"}
         className="blog-listing-page"
+        title="Thunderdome Blog"
       >
         <div
           className="masthead"

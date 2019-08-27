@@ -12,7 +12,12 @@ class Index extends React.Component {
     const { isAuthenticated, user } = this.props.auth;
 
     return (
-      <BaseLayout className="cover" {...this.props.auth} headerType="index">
+      <BaseLayout
+        className="cover"
+        {...this.props.auth}
+        headerType="index"
+        title="Matt Edens | Web Developer"
+      >
         <div className="main-section">
           <div className="background-image">
             <img src="../static/images/background-index.png" />
@@ -57,6 +62,7 @@ class Index extends React.Component {
                       <img
                         className="image"
                         src="/static/images/section-1.png"
+                        alt="Vector illustration of skeleton astronaut floating in space"
                       />
                       <div className="shadow-custom">
                         <div className="shadow-inner"></div>
@@ -94,6 +100,7 @@ class Index extends React.Component {
                       <img
                         className="image"
                         src="/static/images/flame-message-sent.png"
+                        alt="Vector illustration of hand sending a message from a phone as a paper airplane"
                       />
                       <div className="shadow-custom">
                         <div className="shadow-inner"></div>
