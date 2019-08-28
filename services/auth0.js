@@ -5,12 +5,14 @@ import Axios from "axios";
 
 import { getCookieFromReq } from "../helpers/utils";
 
+const CLIENT_ID = process.env.CLIENT_ID;
+
 class Auth0 {
   constructor() {
     this.auth0 = new auth0.WebAuth({
       domain: "dev-jhu1v8c8.auth0.com",
-      clientID: "ZUZKPfQK153aIWM5KBcAcl4uzlCeQo0X",
-      redirectUri: "http://localhost:3000/callback",
+      clientID: CLIENT_ID,
+      redirectUri: `${process.env.BASE_URL}/callback`,
       responseType: "token id_token",
       scope: "openid profile"
     });
@@ -41,21 +43,15 @@ class Auth0 {
       authResult.expiresIn * 1000 + new Date().getTime()
     );
 
-    // localStorage.setItem('access_token', authResult.accessToken); - don't need access token for this app
-
-    Cookies.set("user", authResult.idTokenPayload);
     Cookies.set("jwt", authResult.idToken);
-    Cookies.set("expiresAt", expiresAt);
   }
 
   logout() {
-    Cookies.remove("user");
     Cookies.remove("jwt");
-    Cookies.remove("expiresAt");
 
     this.auth0.logout({
       returnTo: "",
-      clientID: "ZUZKPfQK153aIWM5KBcAcl4uzlCeQo0X"
+      clientID: CLIENT_ID
     });
   }
 

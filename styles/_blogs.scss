@@ -9,7 +9,7 @@
 // Blog Listing Page
 .blog-listing-page {
   min-height: 100vh;
-  background-color: #ecedee;
+  //background-color: #ecedee;
 
   .blog-body {
     padding: 50px 0 0 0;
@@ -73,6 +73,13 @@
       font-size: 14px;
       margin-bottom: 0;
       text-align: center;
+    }
+    .fa-circle {
+      color: $blue;
+    }
+    .copyright {
+      color: $white !important;
+      margin-top: 1rem;
     }
   }
 }
@@ -227,8 +234,4 @@
   .btn-dropdown {
     margin-left: 1rem;
   }
-}
-
-.dash-blog-btn {
-  //customize
 }

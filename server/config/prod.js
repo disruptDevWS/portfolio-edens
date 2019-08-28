@@ -1,4 +1,3 @@
-//Add Values Before Deploy
 module.exports = {
-  DB_URI: ""
+  DB_URI: process.env.DB_URI
 };

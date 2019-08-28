@@ -31,14 +31,17 @@ const BaseLayout = props => {
           content="Matt Edens: freelance web developer and master of the mystical arts"
         ></meta>
         <meta property="og:locale" content="en_US"></meta>
-        <meta property="og:url" content="http://localhost:3000"></meta>
+        <meta property="og:url" content={`${process.env.BASE_URL}`}></meta>
         <meta property="og:type" content="website"></meta>
         <meta
           property="og:description"
           content="Matt Edens (aka Mathias Tiberius) is a professional Idaho-based freelance web developer specializing in JavaScript/React web application and WordPress CMS development"
         ></meta>
         {cannonical && (
-          <link rel="cannonical" href={`http://localhost:3000${cannonical}`} />
+          <link
+            rel="cannonical"
+            href={`${process.env.BASE_URL}${cannonical}`}
+          />
         )}
 
         <link rel="icon" type="image/ico" href="/static/favicon.ico" />
