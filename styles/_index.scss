@@ -131,20 +131,19 @@
 
 //Card Flip
 .flipper {
-  perspective: 1000px;
-  -moz-perspective: 1000px;
   transform-style: preserve-3d;
   position: relative;
   transition: all 0.8s ease;
+  perspective: 1000px;
+  -moz-perspective: 1000px;
+}
 
-  &:hover {
-    transform: rotateY(-180deg);
-  }
+.flipper.isFlipping {
+  transform: rotateY(-180deg);
 }
 
 .front,
 .back {
-  overflow: hidden;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -177,4 +176,13 @@
     position: absolute;
     bottom: 0rem;
   }
+}
+
+//Homepage Type Section
+.main-body-typed {
+  color: $white;
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 2rem;
+  font-style: italic;
 }

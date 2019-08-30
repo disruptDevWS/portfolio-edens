@@ -6,10 +6,31 @@ import Typed from "react-typed";
 class Index extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isFlipping: false
+    };
+  }
+
+  componentDidMount() {
+    this.animateCard();
+  }
+
+  componentWillUnmount() {
+    this.cardAnimationInterval && clearInterval(this.cardAnimationInterval);
+  }
+
+  animateCard() {
+    this.cardAnimationInterval = setInterval(() => {
+      this.setState({
+        isFlipping: !this.state.isFlipping
+      });
+    }, 5000);
   }
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
+    const { isFlipping } = this.state;
 
     return (
       <BaseLayout
@@ -26,7 +47,7 @@ class Index extends React.Component {
             <Row>
               <Col md="6">
                 <div className="hero-section">
-                  <div className="flipper">
+                  <div className={`flipper ${isFlipping ? "isFlipping" : ""}`}>
                     <div className="front">
                       <div className="hero-section-content">
                         <h2> Full Stack Web Developer </h2>
@@ -37,26 +58,6 @@ class Index extends React.Component {
                               Ouch.pics
                             </a>
                           </p>
-                          <Typed
-                            strings={[
-                              "Mastering the mystical arts of HTML",
-                              "Mastering the mystical arts of CSS, SCSS, and Bootstrap",
-                              "Mastering the mystical arts of JavaScript, React, and Next.js",
-                              "Mastering the mystical arts of bedazzled denim jackets",
-                              "Mastering the mystical arts of Git",
-                              "Mastering the mystical arts of WordPress CMS",
-                              "Mastering the mystical arts of Bird Law",
-                              "Mastering the mystical arts of Node, Express, and MongoDB",
-                              "Mastering the mystical arts of PHP and MySQL",
-                              "Mastering the mystical arts of roundhouse kicks"
-                            ]}
-                            typeSpeed={60}
-                            backSpeed={30}
-                            backDelay={1000}
-                            loop
-                            smartBackspace
-                            className="react-typed"
-                          />
                         </div>
                       </div>
                       <img
@@ -134,6 +135,31 @@ class Index extends React.Component {
                     * No quotes were verified prior to placement on this site.
                   </p>
                 </div>
+              </Col>
+            </Row>
+
+            <Row className="main-body-typed">
+              <Col>
+                <Typed
+                  strings={[
+                    "Mastering the mystical arts of HTML",
+                    "Mastering the mystical arts of CSS, SCSS, and Bootstrap",
+                    "Mastering the mystical arts of JavaScript, React, and Next.js",
+                    "Mastering the mystical arts of bedazzled denim jackets",
+                    "Mastering the mystical arts of Git",
+                    "Mastering the mystical arts of WordPress CMS",
+                    "Mastering the mystical arts of Bird Law",
+                    "Mastering the mystical arts of Node, Express, and MongoDB",
+                    "Mastering the mystical arts of PHP and MySQL",
+                    "Mastering the mystical arts of roundhouse kicks"
+                  ]}
+                  typeSpeed={60}
+                  backSpeed={30}
+                  backDelay={1000}
+                  loop
+                  smartBackspace
+                  className="react-typed"
+                />
               </Col>
             </Row>
           </Container>
