@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLayout from "../layouts/BaseLayout";
-import BasePage from "../Basepage";
+import BasePage from "../BasePage";
 
 export default role => Component =>
   class withAuth extends React.Component {
