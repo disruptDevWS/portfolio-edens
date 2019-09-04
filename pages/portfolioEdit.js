@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
-import BasePage from "../components/Basepage";
+import BasePage from "../components/BasePage";
 import PortfolioCreateForm from "../components/portfolios/PortfolioCreateForm";
 import { Row, Col } from "reactstrap";
 import { updatePortfolio, getPortfolioById } from "../actions";

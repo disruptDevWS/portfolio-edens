@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLayout from "../components/layouts/BaseLayout";
-import BasePage from "../components/Basepage";
+import BasePage from "../components/BasePage";
 import { Col, Row, Container } from "reactstrap";
 import { Link } from "../routes";
 import moment from "moment";
