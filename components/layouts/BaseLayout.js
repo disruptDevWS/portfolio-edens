@@ -37,6 +37,10 @@ const BaseLayout = props => {
           property="og:description"
           content="Matt Edens (aka Mathias Tiberius) is a professional Idaho-based freelance web developer specializing in JavaScript/React web application and WordPress CMS development"
         ></meta>
+        <link
+          href="https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700&display=swap"
+          rel="stylesheet"
+        ></link>
         {cannonical && (
           <link
             rel="cannonical"
@@ -45,7 +49,6 @@ const BaseLayout = props => {
         )}
 
         <link rel="icon" type="image/ico" href="/static/favicon.ico" />
-        <script src="https://kit.fontawesome.com/7630047623.js" />
       </Head>
       <div className="layout-container">
         <Header
