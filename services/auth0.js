@@ -38,7 +38,6 @@ class Auth0 {
   }
 
   setSession(authResult) {
-    //Set time of Access Token expiration - ms multiplied into seconds
     const expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
