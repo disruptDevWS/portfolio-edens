@@ -6,22 +6,22 @@ import { Row, Col } from "reactstrap";
 class Cv extends React.Component {
   render() {
     return (
-      <BaseLayout title="Matt Edens | Printable Resume" {...this.props.auth}>
-        <BasePage className="cv-page" title="Printable Resume: Matt Edens">
+      <BaseLayout {...this.props.auth}>
+        <BasePage className="cv-page" title="Printable Resume | Matt Edens">
           <Row>
             <Col md={{ size: 8, offset: 2 }}>
               <div className="cv-title">
                 <a
-                  download="matt-edens-dev-resume.pdf"
+                  download="matt_edens_dev_resume.pdf"
                   className="btn btn-info"
-                  href="/static/matt-edens-dev-resume.pdf"
+                  href="/static/matt_edens_dev_resume.pdf"
                 >
                   Download
                 </a>
               </div>
               <iframe
                 style={{ width: "100%", height: "840px" }}
-                src="/static/matt-edens-dev-resume.pdf"
+                src="/static/matt_edens_dev_resume.pdf"
               ></iframe>
             </Col>
           </Row>
