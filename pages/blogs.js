@@ -119,7 +119,7 @@ class Blogs extends React.Component {
         </BasePage>
         <style jsx>
           {`
-            @import url("https://kit.fontawesome.com/7630047623.js");
+            @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css");
           `}
         </style>
       </BaseLayout>
