@@ -144,7 +144,7 @@ export default class Header extends React.Component {
                 <BootNavLink route="/about" title="About" />
               </NavItem>
               <NavItem className="port-navbar-item">
-                <BootNavLink route="/CV" title="CV" />
+                <BootNavLink route="/cv" title="CV" />
               </NavItem>
               <NavItem className="port-navbar-item">
                 <BootNavLink route="/portfolios" title="Portfolio" />
